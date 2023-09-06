@@ -1,0 +1,23 @@
+
+on: 
+  workflow_dispatch:
+    inputs:
+      calledworkflow_name: 
+        description: " called workflow name for triggaring "
+        required: true 
+        default: "calledworkflow"
+
+  jobs: 
+    
+    build: 
+      runs-on: ubuntu-latest 
+
+      env: 
+        msg: ${{ vars.msg }}
+
+    steps: 
+      - uses: actions-checkout@v3
+
+      - nmae: run env 
+        run: $msg
+  
