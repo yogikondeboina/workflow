@@ -12,12 +12,12 @@ jobs:
   build: 
     runs-on: ubuntu-latest 
 
-     env: 
+    env: 
       msg: ${{ vars.msg }}
 
     steps: 
       - uses: actions-checkout@v3
 
-      - nmae: run env 
+      - name: run env 
         run: $msg
   
