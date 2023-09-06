@@ -2,24 +2,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  plan_dev:
+  Plan_Dev:
     if: github.ref == 'refs/heads/dev'
-    with: 
-      env: 
-        msg: ${{ vars.$msg }}
-    environment: dev
-    #runs-on: ubuntu-latest
+    environment: dev 
+    runs-on: ubuntu-latest
     steps:
-      - name: run env
-        run: echo $msg
+      - run: |
+          echo "msg: $msg"
 
-  plan_main:
-    if: github.ref == 'refs/heads/main'
-    with: 
-      env: 
-        msg: ${{ vars.$msg }}
-    environment: main
-    #runs-on: ubuntu-latest
-    steps:
-      - name: run env
-        run: echo $msg
+  # Plan_Main:
+  #   if: github.ref == 'refs/heads/main'
+  #     environment: main
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - run: |
+    #       echo "msg: $msg"
+
+        # env:
+        #   LEVEL: ${{ inputs.logLevel }}
+        #   TAGS: ${{ inputs.tags }}
+        #   ENVIRONMENT: ${{ inputs.environment }}
+
+  # plan_main:
+  #   if: github.ref == 'refs/heads/main'
+  #   with: 
+  #     env: 
+  #       msg: ${{ vars.$msg }}
+  #   environment: main
+  #   #runs-on: ubuntu-latest
+  #   steps:
+  #     - name: run env
+  #       run: echo $msg
