@@ -7,13 +7,13 @@ on:
         required: true 
         default: "calledworkflow"
 
-  jobs: 
+jobs: 
     
-    build: 
-      runs-on: ubuntu-latest 
+  build: 
+    runs-on: ubuntu-latest 
 
-      env: 
-        msg: ${{ vars.msg }}
+     env: 
+      msg: ${{ vars.msg }}
 
     steps: 
       - uses: actions-checkout@v3
