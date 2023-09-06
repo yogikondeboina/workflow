@@ -1,5 +1,10 @@
 on:
   workflow_dispatch:
+    inputs:
+      calledworkflow_name: 
+        description: " called workflow name for triggaring "
+        required: true 
+        default: "calledworkflow"
 
 jobs:
   Plan_Dev:
