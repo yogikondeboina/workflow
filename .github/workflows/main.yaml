@@ -1,23 +1,25 @@
-
-on: 
+on:
   workflow_dispatch:
-    inputs:
-      calledworkflow_name: 
-        description: " called workflow name for triggaring "
-        required: true 
-        default: "calledworkflow"
 
-jobs: 
-    
-  build: 
-    runs-on: ubuntu-latest 
+jobs:
+  plan_dev:
+    if: github.ref == 'refs/heads/dev'
+    with: 
+      env: 
+        msg: ${{ vars.$msg }}
+    environment: dev
+    #runs-on: ubuntu-latest
+    steps:
+      - name: run env
+        run: echo $msg
 
-    env: 
-      msg: ${{ vars.msg }}
-
-    steps: 
-      #- uses: actions-checkout@v3
-
-      - name: run env 
-        run: $msg
-  
+  plan_main:
+    if: github.ref == 'refs/heads/main'
+    with: 
+      env: 
+        msg: ${{ vars.$msg }}
+    environment: main
+    #runs-on: ubuntu-latest
+    steps:
+      - name: run env
+        run: echo $msg
