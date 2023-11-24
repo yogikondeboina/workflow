@@ -23,10 +23,11 @@ jobs:
           echo $agentIP
       - name: githubrunner
         uses: azure@CLI@v1
-          with: 
-            inlineScript: |
-              set -eu 
-              agentIP=$(curl https:/api.ipify.org)
+        with: 
+          inlineScript: |
+            set -eu 
+            agentIP=$(curl -s https:/api.ipify.org)
+            echo $agentIP
   # Plan_Main:
   #   if: github.ref == 'refs/heads/main'
   #     environment: main
