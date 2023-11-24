@@ -13,7 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: ${{ vars.msg }}
-
+      - name: check ip
+        run: |
+          agentIP=$(curl https:/api.ipify.org/)
+          echo $agentIP
+      - name: check ip2
+        run: |
+          agentIP=(curl -s https:/api.ipify.org/)
+          echo $agentIP
+      - name: githubrunner
+        uses: azure@CLI@v1
+          with: 
+            inlineScript: |
+              set -eu 
+              agentIP=$(curl https:/api.ipify.org)
   # Plan_Main:
   #   if: github.ref == 'refs/heads/main'
   #     environment: main
